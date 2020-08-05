@@ -1,0 +1,20 @@
+[
+	{
+		"id": "1",
+		"path": "assets/Images/c1.jpg",
+		"caption": "Caption 1",
+		"detail": "This is detail data(first) of above event. Held at ----- on -----"
+	},
+	{
+		"id": "2",
+		"path": "assets/Images/c2.jpg",
+		"caption": "Caption 2",
+		"detail": "This is detail data(second) of above event. Held at ----- on -----"
+	},
+	{
+		"id": "1",
+		"path": "assets/Images/c3.jpg",
+		"caption": "Caption 3",
+		"detail": "This is detail data(third) of above event. Held at ----- on -----"
+	}
+]

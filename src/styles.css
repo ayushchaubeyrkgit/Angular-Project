@@ -1,0 +1,169 @@
+.frz {
+	background-color: #941511;
+}
+
+body {
+  background: url('assets/Images/bg_op70.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+}
+
+.opc {
+	opacity: 0.9;
+}
+
+.hdr {
+	background-color: #941511;
+	margin-top: 20px;
+	color: #fff;
+	padding-top: 5px;
+	padding-left: 3px;
+	padding-bottom: 3px;
+}
+
+
+.lbg {
+	background-color: #FFF3F3;
+}
+
+.caution {
+	color: #755151;
+}
+
+.line-center{
+    margin:0;padding:0 10px;
+    background:#FFF3F3;
+    display:inline-block;
+    color: #E3E3E3;
+}
+
+#hor{
+    text-align:center;
+    position:relative;
+    z-index:2;
+}
+
+#hor:after{
+    content:"";
+    position:absolute;
+    top:50%;
+    left:0;
+    right:0;
+    border-top:solid 1px black;
+    z-index:-1;
+}
+
+.hdr2 {
+	color: white;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.links {
+	font-family: 'Roboto Slab', serif;
+}
+
+.hdr3 {
+	font-family: 'Libre Baskerville', serif;
+	color: #fff;
+}
+
+.opt {
+	font-family: 'Libre Baskerville', serif;
+	font-size: 18px;
+	color: #c7F9FF;
+	background-color: #000;
+}
+
+.btnf {
+	font-family: 'Prompt', sans-serif;
+}
+
+.not {
+	font-family: 'Roboto Condensed', sans-serif;	
+}
+
+/*enquiry*/
+
+.content-box {
+	background-color: #FFF3F3;
+	border: 1px solid #707070;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.first-sub-head {
+	padding: 7px 25px 6px 25px;
+	background-color: #941511;
+	color: #fff;
+	font-family: 'Roboto Slab', serif;
+	border: 1px solid #000;
+}
+
+.bor-cont {
+	border: 1px solid #000;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	padding: 15px 25px 5px 25px;
+}
+
+#ref-enter {
+	border: 1.1px solid #1A26D1;
+	border-radius: 3px;
+	padding: 5px 20px 5px 20px;
+	font-size: 20px;
+}
+
+.cur-but {
+	background-color: #3993EE;
+	border: 1px solid #000;
+	color: #fff;
+	border-radius: 25px;
+	padding: 10px 70px 10px 70px;
+	margin-left: 30px;
+	font-size: 18px;
+}
+
+.cur-but:hover {
+	background-color: #00C5CD;
+	font-weight: bold;
+	color: #fff;
+}
+
+/*register*/
+#bootstrap-overrides ul .active {
+	background-color: #941511;
+	color: #fff;
+	border-color: #000;
+}
+
+#bootstrap-overrides li {
+	background-color: #fff;
+	color: #941511;
+	border-radius: 3px;
+	border-color: #000;
+}
+
+#bootstrap-overrides .nav-link {
+	border-color: #1A26D1;	
+}
+
+.border-sec {
+	border: 1px solid #000;
+}

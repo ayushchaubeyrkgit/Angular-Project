@@ -1,0 +1,301 @@
+<div class="container mt-5 mb-5 content-box pl-4 pr-4" id="bootstrap-overrides">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs border-bottom border-dark" role="tablist">
+        <li class="">
+            <a [ngClass]="(sectionActive === 1) ? linkAClass : 'nav-link'" (click)="changeValue($event, 1)"
+                data-toggle="tab">Detail of Complainant</a>
+        </li>
+        <li class="">
+            <a [ngClass]="(sectionActive === 2) ? linkAClass : 'nav-link'" (click)="changeValue($event, 2)"
+                data-toggle="tab">Detail of Incident</a>
+        </li>
+        <li class="">
+            <a [ngClass]="(sectionActive === 3) ? linkAClass : 'nav-link'" (click)="changeValue($event, 3)"
+                data-toggle="tab">Suspect Details</a>
+        </li>
+        <li class="">
+            <a [ngClass]="(sectionActive === 4) ? linkAClass : 'nav-link'" (click)="changeValue($event, 4)"
+                data-toggle="tab">Witness Details</a>
+        </li>
+        <li class="">
+            <a [ngClass]="(sectionActive === 5) ? linkAClass : 'nav-link'" (click)="changeValue($event, 5)"
+                data-toggle="tab">Extra Details</a>
+        </li>
+        <li class="">
+            <a [ngClass]="(sectionActive === 6) ? linkAClass : 'nav-link'" (click)="changeValue($event, 6)"
+                data-toggle="tab">Approval/Rejection Section</a>
+        </li>
+    </ul>
+
+    <div class="container border border-dark tab-pane bg-light active pb-3 pt-3" [ngSwitch]="sectionActive">
+
+        <div class="d-flex pb-2">
+            <div class="flex-fill p-2 border text-right bg-dark text-white pr-3" style="width: 25%;">Reference Key:</div>     
+            <div class="flex-fill p-2 border font-weight-bold bg-dark text-white" style="width: 75%">{{ serverSer.dataRec.ref_id }}</div>
+        </div>
+
+        <div *ngSwitchCase="1">
+
+            <div class="d-flex pb-2">
+                <div class="flex-fill p-2 border text-right pr-3" style="width: 25%">Name:</div>     
+                <div class="flex-fill p-2 border font-weight-bold" style="width: 75%">{{ serverSer.dataRec.doc_name }}</div>
+            </div> 
+
+            <div class="d-flex pb-2">
+                <div class="flex-fill p-2 border text-right pr-3" style="width: 25%;">Father's/Husaband's Name:</div>     
+                <div class="flex-fill p-2 border font-weight-bold" style="width: 75%">{{ serverSer.dataRec.doc_fname }}</div>
+            </div>
+
+            <div class="d-flex pb-2">
+                <div class="flex-fill p-2 border text-right pr-3" style="width: 25%;">Date of Birth:</div>     
+                <div class="flex-fill p-2 border font-weight-bold" style="width: 75%">{{ serverSer.dataRec.doc_dob }}</div>
+            </div>
+
+            <div class="d-flex pb-2">
+                <div class="flex-fill p-2 border text-right pr-3" style="width: 25%;">Nationality:</div>     
+                <div class="flex-fill p-2 border font-weight-bold" style="width: 75%">{{ serverSer.dataRec.doc_nationality }}</div>
+            </div>
+
+            <div class="d-flex pb-2">
+                <div class="flex-fill p-2 border text-right pr-3" style="width: 25%;">ID Card Type:</div>     
+                <div class="flex-fill p-2 border font-weight-bold" style="width: 75%">{{ serverSer.dataRec.doc_idcard }}</div>
+            </div>
+
+            <div class="d-flex pb-2">
+                <div class="flex-fill p-2 border text-right pr-3" style="width: 25%;">ID Card Number:</div>     
+                <div class="flex-fill p-2 border font-weight-bold" style="width: 75%">{{ serverSer.dataRec.doc_idno }}</div>
+            </div>
+
+            <div class="d-flex pb-2">
+                <div class="flex-fill p-2 border text-right pr-3" style="width: 25%;">Address:</div>     
+                <div class="flex-fill p-2 border font-weight-bold" style="width: 75%">{{ serverSer.dataRec.doc_address }}</div>
+            </div>
+
+            <div class="d-flex pb-2">
+                <div class="flex-fill p-2 border text-right pr-3" style="width: 25%;">District:</div>     
+                <div class="flex-fill p-2 border font-weight-bold" style="width: 75%">{{ serverSer.dataRec.doc_district }}</div>
+            </div>
+
+
+            <div class="d-flex pb-2">
+                <div class="flex-fill p-2 border text-right pr-3" style="width: 25%;">Pin Code:</div>     
+                <div class="flex-fill p-2 border font-weight-bold" style="width: 75%">{{ serverSer.dataRec.doc_pin }}</div>
+            </div>
+
+            <div class="d-flex pb-2">
+                <div class="flex-fill p-2 border text-right pr-3" style="width: 25%;">Occupation:</div>     
+                <div class="flex-fill p-2 border font-weight-bold" style="width: 75%">{{ serverSer.dataRec.doc_occupation }}</div>
+            </div>
+
+            <div class="d-flex pb-2">
+                <div class="flex-fill p-2 border text-right pr-3" style="width: 25%;">Phone Number:</div>     
+                <div class="flex-fill p-2 border font-weight-bold" style="width: 75%">{{ serverSer.dataRec.doc_phone }}</div>
+            </div>
+
+        </div>
+
+        <div *ngSwitchCase="2">
+
+            <div class="d-flex pb-2">
+                <div class="flex-fill p-2 border text-right pr-3" style="width: 25%;">Description of Incident:</div>     
+                <div class="flex-fill p-2 border font-weight-bold" style="width: 75%">{{ serverSer.dataRec.doi_desc }}</div>
+            </div>
+
+            <div class="d-flex pb-2">
+                <div class="flex-fill p-2 border text-right pr-3" style="width: 25%;">Start Date:</div>     
+                <div class="flex-fill p-2 border font-weight-bold" style="width: 75%">{{ serverSer.dataRec.doi_sdate }}</div>
+            </div>
+
+            <div class="d-flex pb-2">
+                <div class="flex-fill p-2 border text-right pr-3" style="width: 25%;">End Date:</div>     
+                <div class="flex-fill p-2 border font-weight-bold" style="width: 75%">{{ serverSer.dataRec.doi_edate }}</div>
+            </div>
+
+            <div class="d-flex pb-2">
+                <div class="flex-fill p-2 border text-right pr-3" style="width: 25%;">Start Time:</div>     
+                <div class="flex-fill p-2 border font-weight-bold" style="width: 75%">{{ serverSer.dataRec.doi_stime }}</div>
+            </div>
+
+            <div class="d-flex pb-2">
+                <div class="flex-fill p-2 border text-right pr-3" style="width: 25%;">End Time:</div>     
+                <div class="flex-fill p-2 border font-weight-bold" style="width: 75%">{{ serverSer.dataRec.doi_etime }}</div>
+            </div>
+
+            <div class="d-flex pb-2">
+                <div class="flex-fill p-2 border text-right pr-3" style="width: 25%;">Incident occurred at:</div>     
+                <div class="flex-fill p-2 border font-weight-bold" style="width: 75%">{{ serverSer.dataRec.doi_address }}</div>
+            </div>
+
+            <div class="d-flex pb-2">
+                <div class="flex-fill p-2 border text-right pr-3" style="width: 25%;">District:</div>     
+                <div class="flex-fill p-2 border font-weight-bold" style="width: 75%">{{ serverSer.dataRec.doi_district }}</div>
+            </div>
+
+            <div class="d-flex pb-2">
+                <div class="flex-fill p-2 border text-right pr-3" style="width: 25%;">Pin Code:</div>     
+                <div class="flex-fill p-2 border font-weight-bold" style="width: 75%">{{ serverSer.dataRec.doi_pin }}</div>
+            </div>
+
+            <div class="d-flex pb-2">
+                <div class="flex-fill p-2 border text-right pr-3" style="width: 25%;">Reason for Delay:</div>     
+                <div class="flex-fill p-2 border font-weight-bold" style="width: 75%">{{ serverSer.dataRec.doi_reason }}</div>
+            </div>
+
+        </div>
+
+        <div *ngSwitchCase="3">
+
+            <div *ngFor="let d of serverSer.dataRec.dos; let i=index;">
+
+                <div class="d-flex pb-2">
+                    <div class="flex-fill p-2 border text-right pr-3" style="width: 25%;">Name of Suspect:</div>     
+                    <div class="flex-fill p-2 border font-weight-bold" style="width: 75%">{{ d.dos_name }}</div>
+                </div>
+
+                <div class="d-flex pb-2">
+                    <div class="flex-fill p-2 border text-right pr-3" style="width: 25%;">Name of suspect's Relative:</div>     
+                    <div class="flex-fill p-2 border font-weight-bold" style="width: 75%">{{ d.dos_rname }}</div>
+                </div>
+
+                <div class="d-flex pb-2">
+                    <div class="flex-fill p-2 border text-right pr-3" style="width: 25%;">Address:</div>     
+                    <div class="flex-fill p-2 border font-weight-bold" style="width: 75%">{{ d.dos_address }}</div>
+                </div>
+
+                <div class="d-flex pb-2">
+                    <div class="flex-fill p-2 border text-right pr-3" style="width: 25%;">District:</div>     
+                    <div class="flex-fill p-2 border font-weight-bold" style="width: 75%">{{ d.dos_district }}</div>
+                </div>
+
+                <div class="d-flex pb-2">
+                    <div class="flex-fill p-2 border text-right pr-3" style="width: 25%;">Pin Code:</div>     
+                    <div class="flex-fill p-2 border font-weight-bold" style="width: 75%">{{ d.dos_pin }}</div>
+                </div>
+
+                <hr style="border: 2px solid black;">
+
+            </div>
+
+        </div>
+
+        <div *ngSwitchCase="4">
+
+            <div *ngFor="let d of serverSer.dataRec.dow; let i=index;">
+
+                <div class="d-flex pb-2">
+                    <div class="flex-fill p-2 border text-right pr-3" style="width: 25%;">Name of Witness:</div>     
+                    <div class="flex-fill p-2 border font-weight-bold" style="width: 75%">{{ d.dow_name }}</div>
+                </div>
+
+                <div class="d-flex pb-2">
+                    <div class="flex-fill p-2 border text-right pr-3" style="width: 25%;">Phone Number:</div>     
+                    <div class="flex-fill p-2 border font-weight-bold" style="width: 75%">{{ d.dow_phone }}</div>
+                </div>
+
+                <div class="d-flex pb-2">
+                    <div class="flex-fill p-2 border text-right pr-3" style="width: 25%;">Address of Witness:</div>     
+                    <div class="flex-fill p-2 border font-weight-bold" style="width: 75%">{{ d.dow_address }}</div>
+                </div>
+
+                <div class="d-flex pb-2">
+                    <div class="flex-fill p-2 border text-right pr-3" style="width: 25%;">District:</div>     
+                    <div class="flex-fill p-2 border font-weight-bold" style="width: 75%">{{ d.dow_district }}</div>
+                </div>
+
+                <div class="d-flex pb-2">
+                    <div class="flex-fill p-2 border text-right pr-3" style="width: 25%;">Pin Code:</div>     
+                    <div class="flex-fill p-2 border font-weight-bold" style="width: 75%">{{ d.dow_pin }}</div>
+                </div>
+
+                <hr style="border: 2px solid black;">
+
+            </div>
+        </div>
+
+        <div *ngSwitchCase="5">
+
+            <div class="d-flex pb-2">
+                <div class="flex-fill p-2 border text-right pr-3" style="width: 25%;">Date & Time of FIR Submission:</div>     
+                <div class="flex-fill p-2 border font-weight-bold" style="width: 75%">{{ serverSer.dataRec.de_date_time }}</div>
+            </div>
+
+            <div class="d-flex pb-2">
+                <div class="flex-fill p-2 border text-right pr-3" style="width: 25%;">IP Address of System:</div>     
+                <div class="flex-fill p-2 border font-weight-bold" style="width: 75%">{{ serverSer.dataRec.de_ip_address }}</div>
+            </div>
+
+            <div class="d-flex pb-2">
+                <div class="flex-fill p-2 border text-right pr-3" style="width: 25%;">Signature of Complainant:</div>     
+                <div class="flex-fill p-2 border font-weight-bold" style="width: 75%">
+                    <div class="sign-cont">
+                        <img [src]="serverSer.dataRec.de_sign" class="img-fluid" alt="signature">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div *ngSwitchCase="6">
+
+            <div class="d-flex mt-2 bg-white">
+                <div class="flex-fill p-2 border border-dark rounded text-right pr-3" style="width: 25%;">Select FIR Status: </div>     
+                <div class="flex-fill p-2 border border-left-0 border-dark rounded font-weight-bold" style="width: 75%;">
+                    <label class="mr-3 ml-4">
+                        <input type="radio" value="Approved" name="fir_status" (change)="statusHandler($event.target.value)">
+                        <span class="bg-success text-white border border-dark rounded pl-3 pr-3 ml-2 pb-1">Approve</span>
+                    </label>
+                    <label class="ml-5">
+                        <input type="radio" value="Rejected" name="fir_status" (change)="statusHandler($event.target.value)">
+                        <span class="bg-danger text-white border border-dark rounded pl-3 pr-3 ml-2 pb-1">Reject</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="d-flex mt-3 mb-3 bg-white">
+                <div class="flex-fill pt-2 pb-1 border border-right-0 border-dark rounded text-right pr-3" style="width: 25%;">Name of Officer Incharge:</div>     
+                <div class="flex-fill border border-primary rounded font-weight-bold" style="width: 75%;">
+                    <input type="text" class="form-control"  [(ngModel)]="valueOfficer" [disabled]="serverSer.dataRec.de_status !== 'Approved'">
+                </div>
+            </div>
+    
+            <div class="d-flex mt-3 mb-3 bg-white">
+                <div class="flex-fill pt-2 pb-1 border border-right-0 border-dark rounded text-right pr-3" style="width: 25%;">UserName of Approving Officer:</div>     
+                <div class="flex-fill border border-primary rounded font-weight-bold" style="width: 75%;">
+                    <input type="text" class="form-control" [(ngModel)]="valueOfficerId" disabled>
+                </div>
+            </div>
+
+            <div class="d-flex mt-3 mb-3 bg-white">
+                <div class="flex-fill pt-2 pb-1 border border-right-0 border-dark rounded text-right pr-3" style="width: 25%;">Reason for Rejection:</div>     
+                <div class="flex-fill border border-primary rounded font-weight-bold" style="width: 75%;">
+                    <input type="text" class="form-control" [(ngModel)]="valueRejectReason" [disabled]="serverSer.dataRec.de_status !== 'Rejected'">
+                </div>
+            </div>
+
+            <div class="d-flex mt-3 mb-3 bg-white">
+                <div class="flex-fill pt-2 pb-1 border border-right-0 border-dark rounded text-right pr-3" style="width: 25%;">Add your Signature:</div>     
+                <div class="flex-fill p-2 border border-primary bg-light" style="width: 75%">
+                    <div class="d-flex justify-content-center">
+                        <app-signature-pad-page *ngIf="serverSer.dataRec.de_status === 'Approved'"></app-signature-pad-page>
+                    </div> 
+                </div>
+            </div>
+
+            <div class="col-md-5 mt-5 ml-5 mb-4">
+                <button class="btn btn-primary btn-block font-weight-bold pt-2 pb-2" type="button" 
+                (click)="submitHandler()">Save Changes And Upload</button>
+                <small [class.d-none]="warning" class="text-danger">Enter details before submitting data.</small>
+            </div>
+
+        </div>
+
+        <div class="mt-5">
+            <button class="btn btn-secondary" (click)="changeValue($event, sectionActive-1)"
+                [disabled]="sectionActive === 1">previous section</button>
+            <button class="btn btn-secondary float-right" (click)="changeValue($event, sectionActive+1)"
+                [disabled]="sectionActive === 6">next section</button>
+        </div>
+
+    </div>
+    <!-- {{serverSer.dataRec | json}} -->
+</div>

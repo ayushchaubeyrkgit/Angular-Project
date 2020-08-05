@@ -1,0 +1,49 @@
+<!-- main content: start -->
+<!-- intro-heading -->
+<div class="mt-4">
+    <h4 style="font-family: 'Libre Baskerville;', serif;" class="mt-3"><b>ENQUIRY/TRACK APPLICATION</b></h4>
+    <hr class="mt-0 mb-3" style="border: 2px solid black;" />
+</div>
+
+<!-- box and search bar -->
+<div class="container mt-5 mb-5 content-box pl-4 pr-4">
+    <span class="border-bottom-0 rounded-top first-sub-head">Find My Report</span>
+    <div class="bor-cont mt-1" *ngIf="!gotData; else elseBlock ">
+        <label style="font-family: 'Roboto Slab', serif; font-weight: bold;">Enter REFERENCE KEY below:</label>
+        <br />
+        <input type="text" class="mb-2" required #ref (keyup)="checkValid(ref.value)"/>
+        <button type="submit" [disabled]="isDisabled" class="cur-but" (click)="getData()">Search</button>
+        <br />
+        <div class="mt-4 mb-3 caution not">Cannot Find Reference Key. <a style="color: #755151;">CLICK HERE</a>
+        </div>
+    </div>
+    <ng-template #elseBlock>
+        <div>
+            <div class="bor-cont mt-1">
+                <b>For Reference Key: {{ this.data_rec.ref_id }}</b>
+                <table class="table table-bordered mt-2">
+                    <thead class="thead-light">
+                      <tr>
+                        <th>Name of Applicant</th>
+                        <th>Contact Number</th>
+                        <th>District</th>
+                        <th>Status of FIR</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{{ this.data_rec.doc_name }}</td>
+                        <td>{{ this.data_rec.doc_phone }}</td>
+                        <td>District: {{ this.data_rec.doc_district }}</td>
+                        <td>{{ this.data_rec.de_status }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <button class="mt-2 mb-3 cur-but ml-0">Download My copy of FIR</button>
+            </div>
+        </div>
+    </ng-template>
+
+</div>
+
+<!-- main content: end -->

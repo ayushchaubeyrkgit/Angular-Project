@@ -1,0 +1,52 @@
+<div class="alert alert-warning" *ngIf="otpSuccess === 0 && !sendDataService.otpClear">
+<div class="d-flex flex-column bd-highlight mb-3" *ngIf="firstSection; else secondSection">
+    <div class="d-flex justify-content-center"><h4 class="text-dark">
+        Enter your Aadhar Card Number
+    </h4></div>
+    <div class="d-flex justify-content-center mb-4">
+        <small class="text-secondary font-italic">
+            An OTP will be sent at your phone number registered with Aadhar Card
+        </small>
+    </div>
+    <div class="d-flex justify-content-center">
+        <input type="number" class="form-control form-control-lg col-md-5" #aadhar 
+        [class.is-invalid]="errorAadhar" (focusout)="checkAadhar(aadhar.value)">
+    </div>
+    <div class="d-flex justify-content-center mt-1">
+        <small class="text-danger" [class.d-none]="!errorAadhar">
+            Aadhar invalid!
+        </small>
+    </div>
+    <div class="d-flex justify-content-center mt-3">
+        <button class="btn btn-primary" type="button" (click)="aadharHandler(aadhar.value)">Send OTP</button>
+    </div>
+</div>
+
+<ng-template #secondSection> 
+    <div class="d-flex justify-content-center mb-2"><h4 class="text-dark">
+        Enter the OTP: 
+    </h4></div>
+    <div class="d-flex justify-content-center">
+        <ng-otp-input  (onInputChange)="onOtpChange($event)"  [config]="{length:6}">
+        </ng-otp-input>
+    </div>
+    <div class="d-flex justify-content-center mt-3">
+        <button class="btn btn-primary btn-block col-md-4 ml-1" (click)="verification()">Verify</button>
+    </div>
+    <div class="d-flex justify-content-center mt-4 mb-4">    
+        <button class="simple pl-2 pr-2" type="button" (click)="changeDisplaySection()">Go Back</button>
+        <button class="simple pl-2 pr-2" type="button" (click)="resendOtp()">Resend OTP</button>    
+    </div>
+</ng-template>
+</div>
+
+<div class="alert alert-danger" *ngIf="otpSuccess === -1">
+    <strong>Fail!</strong> Your Otp verification has failed.
+    Please try again!
+    <button class="simple pl-2 pr-2" type="button" (click)="changeDisplaySection()">Go Back</button>
+</div>
+
+<div class="alert alert-success" *ngIf="otpSuccess === 1 || sendDataService.otpClear">
+    <strong>Success!</strong> Your Otp has been successfully verified.
+    You can proceed to final submission of the FIR.
+</div>

@@ -1,0 +1,16 @@
+a {
+    cursor: pointer;
+}
+
+.sign-cont {
+    width: 280px;
+    height: 160px;
+    background-color: #fff;
+    border: 1px dashed red;
+}
+
+.sign-cont2 {
+    width: 350px;
+    height: 200px;
+    background-color: #fff;
+}

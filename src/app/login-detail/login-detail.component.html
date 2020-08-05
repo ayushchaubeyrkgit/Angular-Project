@@ -1,0 +1,94 @@
+<hr style="border: 2px solid black;">
+
+<div class="container pt-2" *ngIf="displayDetails; else formDetails">
+    <h4>SHO Details</h4>
+    <table class="table table-bordered bg-light">
+        <tbody>
+          <tr>
+             <td style="width: 25%;">First Name: {{ data.f_name }}</td>   <!--    {{ data.name | uppercase }} -->
+            <td style="width: 25%;">Middle Name: {{ data.m_name }}</td>
+            <td style="width: 25%;">Last Name: {{ data.l_name }}</td>
+            <td style="width: 25%;" rowspan="3">
+                <div class="d-flex justify-content-center">
+                    <img [src]="data.photo" width="150px" height="150px">
+                    <!-- <button>Logout</button> -->
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td style="width: 25%;">Username: {{ data.userName }}</td>
+            <td style="width: 25%;">Blood Group: {{ data.b_group }}</td>
+            <td style="width: 25%;">Date of Birth: {{ data.dob }}</td>
+          </tr>
+          <tr>
+            <td style="width: 25%;">Gender: {{ data.gender }}</td>
+            <td style="width: 25%;">Phone: {{ data.phone }}</td>
+            <td style="width: 25%;">Email: {{ data.email }}</td>
+          </tr>
+          <tr>
+            <td style="width: 25%;">Thana: {{ data.thana }}</td>
+            <td style="width: 25%;">District: {{ data.district }}</td>
+            <td style="width: 25%;">Pin: {{ data.pin }}</td>
+            <td style="width: 25%;">{{ $time | async | date: 'hh:mm:ss a' }}<br>{{ todayString }}</td>
+          </tr>
+        </tbody>
+    </table>
+
+    <h4>View FIRs</h4>
+    <div class="btn-group d-flex">
+        <button type="button" class="btn btn-secondary w-50" (mouseover)="change($event, 1)">ALL</button>
+        <button type="button" class="btn btn-secondary w-50" *ngIf="!sendSer.spLogin" (mouseover)="change($event, 2)">APPROVED</button>
+        <button type="button" class="btn btn-secondary w-50" *ngIf="!sendSer.spLogin" (mouseover)="change($event, 3)">PENDING</button>
+    </div>
+    <div class="d-flex bg-light" style="font-weight: bold;" *ngIf="tog === 1 || tog === 2 || tog === 3">           
+        <div class="flex-fill p-2 border" style="width: 25%">Refernce Key</div>     
+        <div class="flex-fill p-2 border" style="width: 35%">Date & Time</div>
+        <div class="flex-fill p-2 border" style="width: 20%">Status</div>
+        <div class="flex-fill p-2 border" style="width: 20%">Link</div>
+    </div>
+    <div *ngIf="tog === 1 && sendSer.listF !== null && !sendSer.spLogin">
+        <div *ngFor="let d of sendSer.listF;let i=index;" class="d-flex bg-light">           
+            <div class="flex-fill p-2 border" style="width: 25%">{{ d.ref_id }}</div>     
+            <div class="flex-fill p-2 border" style="width: 35%">{{ d.de_date_time }}</div>
+            <div class="flex-fill p-2 border" style="width: 20%">{{ d.de_status }}</div>
+            <div class="flex-fill p-2 border" style="width: 20%"><p (click)="detailForm(d.ref_id)" class="link-p">View Details</p></div>
+        </div>
+    </div>
+    <div *ngIf="tog === 2 && !sendSer.spLogin">
+        <div *ngFor="let d of sendSer.listF;"> 
+            <div class="d-flex bg-light" *ngIf="d.de_status === 'Approved'">
+                <div class="flex-fill p-2 border" style="width: 25%">{{ d.ref_id }}</div>     
+                <div class="flex-fill p-2 border" style="width: 35%">{{ d.de_date_time }}</div>
+                <div class="flex-fill p-2 border" style="width: 20%">{{ d.de_status }}</div>
+                <div class="flex-fill p-2 border" style="width: 20%"><p (click)="detailForm(d.ref_id)" class="link-p">View Details</p></div>
+            </div>          
+        </div>
+    </div>
+    <div *ngIf="tog === 3 && !sendSer.spLogin">
+        <div *ngFor="let d of sendSer.listF;let i=index;"> 
+            <div class="d-flex bg-light" *ngIf="d.de_status === 'Pending'">
+                <div class="flex-fill p-2 border" style="width: 25%">{{ d.ref_id }}</div>     
+                <div class="flex-fill p-2 border" style="width: 35%">{{ d.de_date_time }}</div>
+                <div class="flex-fill p-2 border" style="width: 20%">{{ d.de_status }}</div>
+                <div class="flex-fill p-2 border" style="width: 20%"><p (click)="detailForm(d.ref_id)" class="link-p">View Details</p></div>
+            </div>          
+        </div>
+    </div>
+
+    <div *ngIf="sendSer.spLogin">
+        <div *ngFor="let d of sendSer.listF;let i=index;"> 
+            <div class="d-flex bg-light" *ngIf="d.de_status === 'Rejected'">
+                <div class="flex-fill p-2 border" style="width: 25%">{{ d.ref_id }}</div>     
+                <div class="flex-fill p-2 border" style="width: 35%">{{ d.de_date_time }}</div>
+                <div class="flex-fill p-2 border" style="width: 20%">{{ d.de_status }}</div>
+                <div class="flex-fill p-2 border" style="width: 20%"><p (click)="detailForm(d.ref_id)" class="link-p">View Details</p></div>
+            </div>          
+        </div>
+    </div>
+</div>
+<!-- {{sendSer.dataRec | json}} -->
+<ng-template #formDetails>
+    <app-form-sho [data]="data" (togDisp)="displayDetails=$event"></app-form-sho>
+    <button class="btn btn-secondary p-2" (click)="toggleDisplay()">Go Back</button>
+    
+</ng-template>

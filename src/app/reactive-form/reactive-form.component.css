@@ -1,0 +1,30 @@
+a {
+    cursor: pointer;
+}
+
+
+.input-container {
+    display: flex;
+    /* width: 100%; */
+    /*margin-bottom: 15px;*/
+  }
+
+.icon-img{
+  margin-top: 4px; 
+  margin-left: 3px;
+}
+
+.icon-img:hover {
+    cursor: pointer;
+}
+
+#sub-btn {
+  border: 3px solid #941511;
+  color: #941511;
+}
+
+#sub-btn:hover {
+  /* border: 1px solid #941511; */
+  color: #fff;
+  background-color: #941511;
+}

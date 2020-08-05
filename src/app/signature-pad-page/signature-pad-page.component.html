@@ -1,0 +1,22 @@
+<div *ngIf="!isDisable && !urlService.signClear; else elseBlock">
+    <div id="sign-div" class="mb-2">
+        <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()">
+        </signature-pad>
+    </div>
+    <!-- <div class="polaroid">
+        <img src="{{ urlService.urlForSign }}" width="350" height="200" />
+    </div> -->
+    <div class="alert alert-danger" *ngIf="errorSign">
+         Signature cannot be empty
+    </div>
+    <div>
+        <button class="btn btn-secondary btn-block" (click)="del()">Clear</button>
+        <button class="btn btn-primary btn-block" (click)="done()">Upload</button>
+    </div>
+</div>
+<ng-template #elseBlock>
+    <div class="alert alert-success">
+        <strong>Success!</strong> Your Signature has been successfully saved.
+    </div>
+    <button class="btn btn-primary btn-block" (click)="reDone()">Re-upload Sign</button>
+</ng-template>

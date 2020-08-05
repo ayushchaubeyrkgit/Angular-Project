@@ -1,0 +1,362 @@
+[
+	{
+		"id":"1",
+		"districtName": "Agar Malwa",
+		"thana": "AgM1"
+	},
+
+	{
+		"id":"1",
+		"districtName": "Agar Malwa",
+		"thana": "AgM2"
+	},
+
+	{
+		"id":"1",
+		"districtName": "Agar Malwa",
+		"thana": "AgM3"
+	},
+
+	{
+		"id":"1",
+		"districtName": "Agar Malwa",
+		"thana": "AgM4"
+	},
+
+	{
+		"id":"2",
+		"districtName": "Alirajpur",
+		"thana": "Al1"
+	},
+
+	{
+		"id":"2",
+		"districtName": "Alirajpur",
+		"thana": "Al2"
+	},
+
+	{
+		"id":"2",
+		"districtName": "Alirajpur",
+		"thana": "Al3"
+	},
+
+	{
+		"id":"3",
+		"districtName": "Anuppur",
+		"thana": "An1"
+	},
+
+	{
+		"id":"3",
+		"districtName": "Anuppur",
+		"thana": "An2"
+	},
+
+	{
+		"id":"3",
+		"districtName": "Anuppur",
+		"thana": "An3"
+	},
+
+
+	{
+		"id":"4",
+		"districtName": "Ashoknagar",
+		"thana": "As1"
+	},
+
+	{
+		"id":"4",
+		"districtName": "Ashoknagar",
+		"thana": "As2"
+	},
+
+	{
+		"id":"5",
+		"districtName": "Balaghat",
+		"thana": "abc5"
+	},
+
+	{
+		"id":"6",
+		"districtName": "Barwani",
+		"thana": "abc6"
+	},
+
+	{
+		"id":"7",
+		"districtName": "Betul",
+		"thana": "abc7"
+	},
+
+	{
+		"id":"8",
+		"districtName": "Bhind",
+		"thana": "abc8"
+	},
+
+	{
+		"id":"9",
+		"districtName": "Bhopal",
+		"thana": "abc9"
+	},
+
+	{
+		"id":"10",
+		"districtName": "Burhanpur",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"11",
+		"districtName": "Chhatarpur",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"12",
+		"districtName": "Chhindwara",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"13",
+		"districtName": "Damoh",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"14",
+		"districtName": "Datia",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"15",
+		"districtName": "Dewas",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"16",
+		"districtName": "Dhar",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"17",
+		"districtName": "Dindhori",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"18",
+		"districtName": "Guna",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"19",
+		"districtName": "Gwalior",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"20",
+		"districtName": "Harda",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"21",
+		"districtName": "Hoshangabad",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"22",
+		"districtName": "Indore",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"23",
+		"districtName": "Jabalpur",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"24",
+		"districtName": "Jhabua",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"25",
+		"districtName": "Katni",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"26",
+		"districtName": "Khandwa",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"27",
+		"districtName": "Khargone",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"28",
+		"districtName": "Mandla",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"29",
+		"districtName": "Mandsaur",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"30",
+		"districtName": "Morena",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"31",
+		"districtName": "Narsinghpur",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"32",
+		"districtName": "Neemuch",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"33",
+		"districtName": "Niwari",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"34",
+		"districtName": "Panna",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"35",
+		"districtName": "Raisen",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"36",
+		"districtName": "Rajgarh",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"37",
+		"districtName": "Ratlam",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"38",
+		"districtName": "Rewa",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"39",
+		"districtName": "Sagar",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"40",
+		"districtName": "Satna",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"41",
+		"districtName": "Sehore",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"42",
+		"districtName": "Seoni",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"43",
+		"districtName": "Shahdol",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"44",
+		"districtName": "Shajapur",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"45",
+		"districtName": "Sheopur",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"46",
+		"districtName": "Shivpuri",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"47",
+		"districtName": "Sidhi",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"48",
+		"districtName": "Singrauli",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"49",
+		"districtName": "Tikamgarh",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"50",
+		"districtName": "Ujjain",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"51",
+		"districtName": "Umaria",
+		"thana": "abc1"
+	},
+
+	{
+		"id":"52",
+		"districtName": "Vidisha",
+		"thana": "abc1"
+	}
+]

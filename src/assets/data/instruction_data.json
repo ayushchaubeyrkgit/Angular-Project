@@ -1,0 +1,52 @@
+[
+	{
+		"id": "1",
+		"notice": "This is a sample notice, generated for development purpose only",
+		"link": "https://www.google.com"
+	},
+	{
+		"id": "2",
+		"notice": "This is a sample notice, generated for development purpose only",
+		"link": "https://www.google.com"
+	},
+	{
+		"id": "3",
+		"notice": "This is a sample notice, generated for development purpose only",
+		"link": ""
+	},
+	{
+		"id": "4",
+		"notice": "This is a sample notice, generated for development purpose only",
+		"link": ""
+	},
+	{
+		"id": "5",
+		"notice": "This is a sample notice, generated for development purpose only",
+		"link": "https://www.google.com"
+	},
+	{
+		"id": "6",
+		"notice": "This is a sample notice, generated for development purpose only",
+		"link": ""
+	},
+	{
+		"id": "7",
+		"notice": "This is a sample notice, generated for development purpose only",
+		"link": "https://www.google.com"
+	},
+	{
+		"id": "8",
+		"notice": "This is a sample notice, generated for development purpose only",
+		"link": "https://www.google.com"
+	},
+	{
+		"id": "9",
+		"notice": "This is a sample notice, generated for development purpose only",
+		"link": ""
+	},
+	{
+		"id": "10",
+		"notice": "This is a sample notice, generated for development purpose only",
+		"link": "https://www.google.com"
+	}
+]

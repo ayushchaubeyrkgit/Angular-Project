@@ -1,0 +1,21 @@
+p {
+    margin: 0;
+}
+
+.btn-group.special {
+    display: flex;
+  }
+  
+  .special .btn {
+    flex: 1
+  }  
+
+.link-p {
+  font-style: italic;
+  text-decoration: underline;
+}
+
+.link-p:hover {
+  cursor: pointer;
+  color: brown;
+}

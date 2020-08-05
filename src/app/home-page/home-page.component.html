@@ -1,0 +1,178 @@
+<!-- content: start -->
+<div class="row scd mt-2">
+    <!-- left space -->
+    <div class="col-md-2">
+    </div>
+
+    <!-- card-1 -->
+    <div class="col-md-2">
+        <div class="card">
+            <img class="card-img" src="assets/Images/card1.jpg" alt="Card image cap">
+            <div class="card-img-overlay h-100 d-flex flex-column justify-content-end text-center">
+                <button class="opt" routerLink="/register" (click)="chnValue($event, 0)">REGISTER</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- card-2 -->
+    <div class="col-md-2">
+        <div class="card">
+            <img class="card-img" src="assets/Images/card2.jpg" alt="Card image cap">
+            <div class="card-img-overlay h-100 d-flex flex-column justify-content-end">
+                <button class="opt" routerLink="/enquiry"  (click)="chnValue($event, 0)">TRACK FIR</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- card-3 -->
+    <div class="col-md-2">
+        <div class="card">
+            <img class="card-img" src="assets/Images/card3.jpg" alt="Card image cap">
+            <div class="card-img-overlay h-100 d-flex flex-column justify-content-end text-center">
+                <button class="opt">PASSPORT</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- card-4 -->
+    <div class="col-md-2">
+        <div class="card">
+            <img class="card-img" src="assets/Images/card4.jpg" alt="Card image cap">
+            <div class="card-img-overlay h-100 d-flex flex-column justify-content-end text-center">
+                <button class="opt" routerLink="/affidavit"  (click)="chnValue($event, 0)">AFFIDAVIT</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- right space -->
+    <div class="col-md-2">
+    </div>
+</div>
+<!-- main content-1: end -->
+
+<!-- main content-2: start -->
+<section class="pt-1 pb-3">
+    <!-- heading -->
+    <div class="hdr border-top rounded-top ml-2 mr-2">
+        <label class="hdr3 pl-1">Emergency and Visitor's Section</label>
+    </div>
+
+    <!-- content -->
+    <div class="row lbg ml-2 mr-2">
+        <!-- emergency -->
+        <div class="col-md-3 border-right border-dark">
+            <button class="btn-danger btnf btn mt-3 btn-block">EMERGENCY CALL</button>
+            <br />
+            <h4>Notice:</h4>
+            <ul class="caution not">
+                <li>This serive must be used only in case of an Emergency</li>
+                <li>Mis-use of this facility can result in fine</li>
+            </ul>
+        </div>
+
+        <!-- location -->
+        <div class="col-md-3 border-right border-dark">
+            <button class="btn-secondary btnf btn mt-3 btn-block" (click)="displayMap()">LOCATE</button>
+            <br/>
+            <div id="hor"><span class="line-center">OR</span></div>
+            <br />
+            <div class="border-info border pt-1 pl-2 pb-2 pr-2 mb-2">
+                <select class="custom-select mt-2" name="districts" [(ngModel)]="selectedDistrict" (click)="trimThana()">
+                    <option>Select your District</option>
+                    <option *ngFor="let d of districtList; let i=index">{{ d.districtName }}</option>                   
+                </select>
+                <!-- {{selectedDistrict}} -->
+                <select class="custom-select mt-2" name="districts" [disabled]="selectedDistrict === '' || selectedDistrict === 'Select your District'">
+                    <option>Select your Police Station</option>                  
+                    <option *ngFor="let t of printThanaList;">{{ t }}</option>
+                </select>
+                <button class="btn btnf btn-primary mt-3 mb-2">Search</button>
+            </div>
+        </div>
+
+        <!-- map -->
+        <div class="col-md-6 pt-2" *ngIf="display_map">
+            <agm-map [latitude]="latitude" [longitude]="longitude">
+                <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+            </agm-map>
+        </div>
+    </div>
+</section>
+<!-- main content-2: end -->
+
+<!-- main content-3: start -->
+<div class="card-group ml-2 mr-2 mb-2">
+    <!-- card-1 notices  -->
+    <div class="card">
+        <div class="card-header text-center text-white rounded-top" style="background-color: #941511;">
+            <label class="hdr3">Important Notices</label>
+        </div>
+        <div class="card-body lbg"  style="height: 100px; overflow: scroll;">
+            <!-- add link for notices -->
+            <ul class="list-group" *ngFor="let i of insData">
+                <li class="list-group-item">{{ i.notice }} 
+                    <a href="{{ i.link }}" *ngIf="i.link != ''" style="color: black; padding-left: 2px; padding-right: 2px; font-size: 12px; border: 1px solid blue; background-color: yellow;">
+                        <i>Visit</i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- card-2 gallery -->
+    <div class="card">
+        <div class="card-header text-center text-white rounded-top" style="background-color: #941511;">
+            <label class="hdr3">Gallery</label>
+        </div>
+        <div class="card-body lbg">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="assets/Images/c.jpg" alt="img0" />
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Caption 0</h5>
+                            <p>This is detail data(zero) of above event. Held at ----- on ----</p>
+                        </div>
+                    </div>
+                    <!-- <div *ngFor="let c of carData"> -->
+                    <div class="carousel-item" *ngFor="let c of carData">
+                        <img class="d-block w-100" src={{c.path}} alt={{c}} />
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>{{ c.caption }}</h5>
+                            <p>{{ c.detail }}</p>
+                        </div>
+                    </div>
+                    <!-- </div> -->
+                    <!-- <div class="carousel-item">
+                        <img class="d-block w-100" src="assets/Images/c2.jpg" alt="Second slide">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>caption 2</h5>
+                            <p>detail 2</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="assets/Images/c3.jpg" alt="Third slide">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>caption 3</h5>
+                            <p>detail 3</p>
+                        </div>
+                    </div> -->
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- content: start -->

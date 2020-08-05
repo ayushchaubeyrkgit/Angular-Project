@@ -1,0 +1,508 @@
+<div class="container mt-5 mb-5 content-box pl-4 pr-4" id="bootstrap-overrides">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs border-bottom border-dark" role="tablist">
+        <li class="">
+            <a [ngClass]="(sectionActive === 1) ? linkAClass : 'nav-link'" (click)="changeValue($event, 1)"
+                data-toggle="tab">Detail of Complainant</a>
+        </li>
+        <li class="">
+            <a [ngClass]="(sectionActive === 2) ? linkAClass : 'nav-link'" (click)="changeValue($event, 2)"
+                data-toggle="tab">Detail of Incident</a>
+        </li>
+        <li class="">
+            <a [ngClass]="(sectionActive === 3) ? linkAClass : 'nav-link'" (click)="changeValue($event, 3)"
+                data-toggle="tab">Suspect Details</a>
+        </li>
+        <li class="">
+            <a [ngClass]="(sectionActive === 4) ? linkAClass : 'nav-link'" (click)="changeValue($event, 4)"
+                data-toggle="tab">Witness Details</a>
+        </li>
+        <li class="">
+            <a [ngClass]="(sectionActive === 5) ? linkAClass : 'nav-link'" (click)="changeValue($event, 5)"
+                data-toggle="tab">Evidence Section</a>
+        </li>
+        <li class="">
+            <a [ngClass]="(sectionActive === 6) ? linkAClass : 'nav-link'" (click)="changeValue($event, 6)"
+                data-toggle="tab">Signature</a>
+        </li>
+        <li class="">
+            <a [ngClass]="(sectionActive === 7) ? linkAClass : 'nav-link'" (click)="changeValue($event, 7)"
+                data-toggle="tab">Aadhar Verification</a>
+        </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content border-top-0 border-sec">
+        <div class="container tab-pane active pb-3 pt-3" [ngSwitch]="sectionActive">
+            <form [formGroup]="firForm">
+                <!-- {{ firForm.value | json }} -->
+                <div *ngSwitchCase="1">
+                    <div class="form-group">
+                        <label>Enter your name:</label>
+                        <div class="input-container">
+                            <input formControlName="docName" [class.is-invalid]="docName.invalid && docName.touched"
+                                type="text" class="form-control" name="docName">
+                            <img src="assets/Images/mic.png" class="icon-img" (click)="startVoiceRecognition($event, 1, 5000)"
+                                width="30px" height="30px">
+                        </div>
+                        <div *ngIf="docName.invalid && docName.touched">
+                            <small *ngIf="docName.errors?.required" class="text-danger">Name is
+                            mandatory</small>
+                            <small *ngIf="docName.errors?.pattern" class="text-danger">Only alphabet allowed</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Enter your Father's/Husband's name:</label>
+                        <div class="input-container">
+                            <input formControlName="docFname" [class.is-invalid]="docFname.invalid && docFname.touched"
+                                type="text" class="form-control" name="docFname">
+                            <img src="assets/Images/mic.png" class="icon-img" (click)="startVoiceRecognition($event, 2, 5000)"
+                                width="30px" height="30px">
+                        </div>
+                        <div *ngIf="docFname.invalid && docFname.touched">
+                            <small *ngIf="docFname.errors?.required" class="text-danger">Father's/Husband's Name is
+                            mandatory</small>
+                            <small *ngIf="docFname.errors?.pattern" class="text-danger">Only alphabet allowed</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Enter your Date of Birth:</label>
+                        <input formControlName="docDob" [class.is-invalid]="docDob.invalid && docDob.touched"
+                            type="date" class="form-control" name="docDob">
+                        <small class="text-danger" [class.d-none]="docDob.valid || docDob.untouched">Date of Birth is
+                            mandatory</small>
+                            <!-- {{firForm.get('docDob').value}} -->
+                    </div>
+
+                    <div class="form-group">
+                        <label>Nationality:</label>
+                        <div class="input-container">
+                            <input formControlName="docNationality"
+                                [class.is-invalid]="docNationality.invalid && docNationality.touched" type="text"
+                                class="form-control" name="docNationality">
+                            <img src="assets/Images/mic.png" class="icon-img" (click)="startVoiceRecognition($event, 3, 5000)"
+                                width="30px" height="30px">
+                        </div>
+                        <small class="text-danger"
+                            [class.d-none]="docNationality.valid || docNationality.untouched">Nationality is
+                            mandatory</small>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Select ID Card Type:</label>
+                            <select class="custom-select" [class.is-invalid]="docIdType.invalid && docIdType.touched"
+                                formControlName="docIdType" name="docIdType">
+                                <option *ngFor="let type of idTypes">{{ type }}</option>
+                            </select>
+                            <small class="text-danger" [class.d-none]="docIdType.valid || docIdType.untouched">ID card
+                                is mandatory</small>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Enter ID card number:</label>
+                            <div class="input-container">
+                                <input formControlName="docIdNo" [class.is-invalid]="docIdNo.invalid && docIdNo.touched"
+                                    type="text" class="form-control" name="docIdNo">
+                                <img src="assets/Images/mic.png" class="icon-img"
+                                    (click)="startVoiceRecognition($event, 4, 8000)" width="30px" height="30px">
+                            </div>
+                            <div *ngIf="docIdNo.invalid && docIdNo.touched">
+                                <small *ngIf="docIdNo.errors?.required" class="text-danger">ID Card Number is
+                                mandatory</small>
+                                <small *ngIf="docIdNo.errors?.pattern" class="text-danger">Only alphabet and digits allowed</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Address:</label>
+                            <div class="input-container">
+                                <input formControlName="docAddress"
+                                    [class.is-invalid]="docAddress.invalid && docAddress.touched" type="text"
+                                    class="form-control" name="docAddress">
+                                <img src="assets/Images/mic.png" class="icon-img"
+                                    (click)="startVoiceRecognition($event, 5, 8000)" width="30px" height="30px">
+                            </div>
+                            <small class="text-danger" [class.d-none]="docAddress.valid || docAddress.untouched">Address
+                                is mandatory</small>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label>District:</label>
+                            <div class="input-container">
+                                <input formControlName="docDistrict"
+                                    [class.is-invalid]="docDistrict.invalid && docDistrict.touched" type="text"
+                                    class="form-control" name="docDistrict">
+                                <img src="assets/Images/mic.png" class="icon-img"
+                                    (click)="startVoiceRecognition($event, 6, 5000)" width="30px" height="30px">
+                            </div>
+                            <small class="text-danger"
+                                [class.d-none]="docDistrict.valid || docDistrict.untouched">District is
+                                mandatory</small>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label>Pin Code:</label>
+                            <div class="input-container">
+                                <input formControlName="docPin" [class.is-invalid]="docPin.invalid && docPin.touched"
+                                    type="text" class="form-control" name="docPin">
+                                <img src="assets/Images/mic.png" class="icon-img"
+                                    (click)="startVoiceRecognition($event, 7, 6000)" width="30px" height="30px">
+                            </div>
+                            <div *ngIf="docPin.invalid && docPin.touched">
+                                <small *ngIf="docPin.errors?.required" class="text-danger">Pin Code is mandatory</small>
+                                <small *ngIf="docPin.errors?.pattern" class="text-danger">Only 6 digits allowed</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Enter your Occupation:</label>
+                        <div class="input-container">
+                            <input formControlName="docOccupation"
+                                [class.is-invalid]="docOccupation.invalid && docOccupation.touched" type="text"
+                                class="form-control" name="docOccupation">
+                                <!-- [value]="fieldFlag === 8 ? voice.voiceText : formVData[7]"> -->
+                            <img src="assets/Images/mic.png" class="icon-img" (click)="startVoiceRecognition($event, 8, 6000)"
+                                width="30px" height="30px">
+                        </div>
+                        <small class="text-danger"
+                            [class.d-none]="docOccupation.valid || docOccupation.untouched">Occupation is
+                            mandatory</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Enter your Phone Number:</label>
+                        <div class="input-container">
+                            <input formControlName="docPhone" [class.is-invalid]="docPhone.invalid && docPhone.touched"
+                                type="text" class="form-control" name="docPhone">
+                            <img src="assets/Images/mic.png" class="icon-img" (click)="startVoiceRecognition($event, 9, 8000)"
+                                width="30px" height="30px">
+                        </div>
+                        <div *ngIf="docPhone.invalid && docPhone.touched">
+                            <small class="text-danger" *ngIf="docPhone.errors?.required">Phone Number is mandatory</small>
+                            <small class="text-danger" *ngIf="docPhone.errors?.pattern">Only 10 digits are allowed</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngSwitchCase="2">
+
+                    <div class="form-group">
+                        <label>Describe the incident:</label>
+                        <div class="input-container">
+                            <textarea formControlName="doiDesc" [class.is-invalid]="doiDesc.invalid && doiDesc.touched"
+                                type="text" rows="3" class="form-control" name="doiDesc"></textarea>
+                            <img src="assets/Images/mic.png" class="icon-img"
+                                (click)="startVoiceRecognition($event, 10, 10000)" width="30px" height="30px">
+                        </div>
+                        <small class="text-danger" [class.d-none]="doiDesc.valid || doiDesc.untouched">Description is
+                            mandatory</small>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Enter Date: Starting of incident</label>
+                            <input formControlName="doiDateStart"
+                                [class.is-invalid]="doiDateStart.invalid && doiDateStart.touched" type="date"
+                                class="form-control" name="doiDateStart">
+                            <small class="text-danger"
+                                [class.d-none]="doiDateStart.valid || doiDateStart.untouched">Start Date
+                                is mandatory</small>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Enter Date: Ending of incident</label>
+                            <input formControlName="doiDateEnd"
+                                [class.is-invalid]="doiDateEnd.invalid && doiDateEnd.touched" type="date"
+                                class="form-control" name="doiDateEnd">
+                            <small class="text-danger" [class.d-none]="doiDateEnd.valid || doiDateEnd.untouched">End
+                                Date is mandatory</small>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Enter Time: Starting of incident</label>
+                            <input formControlName="doiTimeStart"
+                                [class.is-invalid]="doiTimeStart.invalid && doiTimeStart.touched" type="time"
+                                class="form-control" name="doiTimeStart">
+                            <small class="text-danger"
+                                [class.d-none]="doiTimeStart.valid || doiTimeStart.untouched">Start Time
+                                is mandatory</small>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Enter Time: Ending of incident</label>
+                            <input formControlName="doiTimeEnd"
+                                [class.is-invalid]="doiTimeEnd.invalid && doiTimeEnd.touched" type="time"
+                                class="form-control" name="doiTimeEnd">
+                            <small class="text-danger" [class.d-none]="doiTimeEnd.valid || doiTimeEnd.untouched">End
+                                Time is mandatory</small>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Address:</label>
+                            <div class="input-container">
+                                <input formControlName="doiAddress"
+                                    [class.is-invalid]="doiAddress.invalid && doiAddress.touched" type="text"
+                                    class="form-control" name="doiAddress">
+                                <img src="assets/Images/mic.png" class="icon-img"
+                                    (click)="startVoiceRecognition($event, 11, 8000)" width="30px" height="30px">
+                            </div>
+                            <small class="text-danger" [class.d-none]="doiAddress.valid || doiAddress.untouched">Address
+                                is mandatory</small>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label>District:</label>
+                            <div class="input-container">
+                                <input formControlName="doiDistrict"
+                                    [class.is-invalid]="doiDistrict.invalid && doiDistrict.touched" type="text"
+                                    class="form-control" name="doiDistrict">
+                                <img src="assets/Images/mic.png" class="icon-img"
+                                    (click)="startVoiceRecognition($event, 12, 5000)" width="30px" height="30px">
+                            </div>
+                            <small class="text-danger"
+                                [class.d-none]="doiDistrict.valid || doiDistrict.untouched">District is
+                                mandatory</small>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label>Pin Code:</label>
+                            <div class="input-container">
+                                <input formControlName="doiPin" [class.is-invalid]="doiPin.invalid && doiPin.touched"
+                                    type="text" class="form-control" name="doiPin">
+                                <img src="assets/Images/mic.png" class="icon-img"
+                                    (click)="startVoiceRecognition($event, 13, 6000)" width="30px" height="30px">
+                            </div>
+                            <div *ngIf="doiPin.invalid && doiPin.touched">
+                                <small *ngIf="doiPin.errors?.required" class="text-danger">Pin Code is mandatory</small>
+                                <small *ngIf="doiPin.errors?.pattern" class="text-danger">Only 6 digits allowed</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Reason for delay:</label>
+                        <div class="input-container">
+                            <input formControlName="doiReason" type="textarea" class="form-control" name="doiReason">
+                            <img src="assets/Images/mic.png" class="icon-img"
+                                (click)="startVoiceRecognition($event, 14, 6000)" width="30px" height="30px">
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngSwitchCase="3">
+                    <div formArrayName="dos" *ngFor="let d of firForm.get('dos')['controls']; let i=index">
+                        <div [formGroupName]="i">
+
+                            <div class="form-group">
+                                <label>Enter name of suspect:</label>
+                                <div class="input-container">
+                                    <input formControlName="dosName" type="text" class="form-control" name="dosName">
+                                    <img src="assets/Images/mic.png" class="icon-img"
+                                    (click)="startVoiceRecognition($event, 15+i, 5000)" [id]="i" width="30px" height="30px">
+                                </div>
+                                <!-- <div *ngIf="d[i].dosName.invalid && d[i].dosName.touched">
+                                    <small *ngIf="d[i].dosName.errors?.pattern" class="text-danger">Only alphabet allowed</small>
+                                </div> -->
+                            </div>
+
+                            <div class="form-group">
+                                <label>Enter suspect's relative's name:</label>
+                                <div class="input-container">
+                                    <input formControlName="dosRname" type="text" class="form-control" name="dosRname">
+                                    <img src="assets/Images/mic.png" class="icon-img"
+                                        (click)="startVoiceRecognition($event, 18+i, 5000)" [id]="i" width="30px"
+                                        height="30px">
+                                </div>
+                                <!-- <div *ngIf="d[i].dosRname.invalid && d[i].dosRname.touched">
+                                    <small *ngIf="d[i].dosRname.errors?.pattern" class="text-danger">Only alphabet allowed</small>
+                                </div> -->
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>Address of suspect:</label>
+                                    <div class="input-container">
+                                        <input formControlName="dosAddress" type="text" class="form-control"
+                                            name="dosAddress">
+                                        <img src="assets/Images/mic.png" class="icon-img"
+                                            (click)="startVoiceRecognition($event, 21+i, 8000)" [id]="i" width="30px"
+                                            height="30px">
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-4">
+                                    <label>District:</label>
+                                    <div class="input-container">
+                                        <input formControlName="dosDistrict" type="text" class="form-control"
+                                            name="dosDistrict">
+                                        <img src="assets/Images/mic.png" class="icon-img"
+                                            (click)="startVoiceRecognition($event, 24+i, 5000)" [id]="i" width="30px"
+                                            height="30px">
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-2">
+                                    <label>Pin Code:</label>
+                                    <div class="input-container">
+                                        <input formControlName="dosPin" type="text" class="form-control" name="dosPin" >
+                                        <img src="assets/Images/mic.png" class="icon-img"
+                                        (click)="startVoiceRecognition($event, 27+i, 6000)" [id]="i" width="30px"
+                                        height="30px">
+                                    </div>
+                                    /
+                                </div>
+                            </div>
+
+                        </div>
+                        <hr style="border: 1px solid black;" />
+                    </div>
+                    <button class="btn btn-secondary btn-sm mb-4" (click)="addDos()" [disabled]="dosCount > 2"
+                        type="button">Add another suspect data</button>
+                </div>
+
+                <div *ngSwitchCase="4">
+                    <div formArrayName="dow" *ngFor="let d of firForm.get('dow')['controls']; let i=index">
+                        <div [formGroupName]="i">
+
+                            <div class="form-group">
+                                <label>Enter name of witness:</label>
+                                <div class="input-container">
+                                    <input formControlName="dowName" type="text" class="form-control" name="dowName">
+                                    <img src="assets/Images/mic.png" class="icon-img" (click)="startVoiceRecognition($event, 30+i, 5000)"
+                                     [id]="i" width="30px" height="30px">
+                                </div>
+                                <!-- <div *ngIf="d[i].dowName.invalid && d[i].dowName.touched">
+                                    <small *ngIf="d[i].dowName.errors?.pattern" class="text-danger">Only alphabet allowed</small>
+                                </div> -->
+                            </div>
+
+                            <div class="form-group">
+                                <label>Enter phone number of witness:</label>
+                                <div class="input-container">
+                                    <input formControlName="dowPhone" type="text" class="form-control" name="dowPhone">
+                                    <img src="assets/Images/mic.png" class="icon-img" (click)="startVoiceRecognition($event, 33+i, 8000)" 
+                                    [id]="i" width="30px" height="30px">
+                                </div>
+                                <!-- <div *ngIf="d[i].dowPhone.invalid && d[i].dowPhone.touched">
+                                    <small *ngIf="d[i].dowPhone.errors?.pattern" class="text-danger">Only 10 digits allowed</small>
+                                </div> -->
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>Address:</label>
+                                    <div class="input-container">
+                                        <input formControlName="dowAddress" type="text" class="form-control"
+                                        name="dowAddress">
+                                        <img src="assets/Images/mic.png" class="icon-img"
+                                        (click)="startVoiceRecognition($event, 36+i, 8000)" [id]="i" width="30px"
+                                        height="30px">
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-4">
+                                    <label>District:</label>
+                                    <div class="input-container">
+                                    <input formControlName="dowDistrict" type="text" class="form-control"
+                                        name="dowDistrict">
+                                        <img src="assets/Images/mic.png" class="icon-img"
+                                        (click)="startVoiceRecognition($event, 39+i, 5000)" [id]="i" width="30px"
+                                        height="30px">
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-2">
+                                    <label>Pin Code:</label>
+                                    <div class="input-container">
+                                        <input formControlName="dowPin" type="text" class="form-control" name="dowPin">
+                                        <img src="assets/Images/mic.png" class="icon-img"
+                                        (click)="startVoiceRecognition($event, 42+i, 6000)" [id]="i" width="30px"
+                                        height="30px">
+                                    </div>
+                                    <!-- <div *ngIf="d[i].dowPin.invalid && d[i].dowPin.touched">
+                                        <small *ngIf="d[i].dowPin.errors?.pattern" class="text-danger">Only 6 digits allowed</small>
+                                    </div> -->
+                                </div>
+                            </div>
+
+                        </div>
+                        <hr style="border: 1px solid black;" />
+                    </div>
+                    <button class="btn btn-secondary btn-sm mb-4" (click)="addDow()" type="button" [disabled]="dowCount > 2">Add another witness data</button>
+                    <br>
+                    <div class="d-flex justify-content-center">
+                        <button  class="btn btn-block font-weight-bold col-md-6 pt-3 pb-3 mt-3 mb-5" type="button"
+                            id="sub-btn" [disabled]="firForm.invalid" data-toggle="modal" data-target="#exampleModalLong">Preview FIR Data</button>
+                    </div>                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="false">
+                        <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Preview FIR Data</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                                <app-preview-fir [parentData]="firForm.value"></app-preview-fir>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+            <div *ngSwitchCase="5">
+                <label class="font-weight-bold">Upload images:</label>
+                <div class="bg-white p-3">
+                    <input type="file" accept="image/*" style="display: none;" (change)="onFileSelected($event)" #fileInput>
+                    <button type="button" (click)="fileInput.click()" class="btn btn-secondary mr-3">Pick a File</button>
+                    <button type="button" (click)="onUpload()" class="btn btn-primary">Upload</button>
+                </div>
+
+                <label class="font-weight-bold mt-3">Upload audio:</label>
+                <div class="bg-white p-3">
+                    <input type="file" accept="audio/*" style="display: none;" (change)="onFileSelected($event)" #fileInput2>
+                    <button type="button" (click)="fileInput2.click()" class="btn btn-secondary mr-3">Pick a File</button>
+                    <button type="button" (click)="onUpload()" class="btn btn-primary">Upload</button>
+                </div>
+
+            </div>
+
+            <div *ngSwitchCase="6">
+                <label class="font-weight-bold">Put your siganture in the box</label>
+                <div class="d-flex justify-content-center">
+                    <app-signature-pad-page></app-signature-pad-page>
+                </div>
+            </div>
+
+            <div *ngSwitchCase="7">
+                <app-otp-aadhar></app-otp-aadhar>
+                <br>
+                <!-- [disabled]="!sendDataService.otpClear || !sendDataService.signClear || firForm.invalid" -->
+                <button class="btn btn-primary"  (click)="onSubmit()">SUBMIT DATA</button>
+            </div>
+
+            <div class="mt-4">
+                <button class="btn btn-secondary" (click)="changeValue($event, sectionActive-1)"
+                    [disabled]="sectionActive === 1">previous section</button>
+                <button class="btn btn-secondary float-right" (click)="changeValue($event, sectionActive+1)"
+                    [disabled]="sectionActive === 6">next section</button>
+            </div>
+
+        </div>
+    </div>
+</div>

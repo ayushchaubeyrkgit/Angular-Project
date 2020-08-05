@@ -1,0 +1,127 @@
+<p>{{parentData | json}}</p>
+<div class="rounded border-primary"
+    style="background-color: azure; padding: 10px 5px 10px 5px; border: 1px solid blue;">
+    <span class="rounded head">Details of Complainant</span>
+    <div class="content rounded">
+        <label class="col-md-3 mr-2 text-right">Name:</label>
+        <input type="text" class="font-weight-bold" [(ngModel)]="parentData.docName" class="col-md-7">
+        <br>
+        <label class="col-md-3 mr-2 mt-3 text-right">Husband's/Father's Name:</label>
+        <input type="text" [(ngModel)]="parentData.docFname" class="col-md-7">
+        <br>
+        <label class="col-md-3 mr-2 mt-3 text-right">Date of Birth:</label>
+        <input type="date" [(ngModel)]="parentData.docDob" class="col-md-7">
+        <br>
+        <label class="col-md-3 mr-2 mt-3 text-right">Nationality:</label>
+        <input type="text" [(ngModel)]="parentData.docNationality" class="col-md-7">
+        <br>
+        <label class="col-md-3 mr-2 mt-3 text-right">ID Card Type:</label>
+        <input type="text" [(ngModel)]="parentData.docIdType" class="col-md-7">
+        <br>
+        <label class="col-md-3 mr-2 mt-3 text-right">ID Card Number:</label>
+        <input type="text" [(ngModel)]="parentData.docIdNo" class="col-md-7">
+        <br>
+        <label class="col-md-3 mr-2 mt-3 text-right">Address:</label>
+        <input type="text" [(ngModel)]="parentData.docAddress" class="col-md-7">
+        <br>
+        <label class="col-md-3 mr-2 mt-3 text-right">District:</label>
+        <input type="text" [(ngModel)]="parentData.docDistrict" class="col-md-7">
+        <br>
+        <label class="col-md-3 mr-2 mt-3 text-right">Pin Code:</label>
+        <input type="text" [(ngModel)]="parentData.docPin" class="col-md-7">
+        <br>
+        <label class="col-md-3 mr-2 mt-3 text-right">Occupation:</label>
+        <input type="text" [(ngModel)]="parentData.docOccupation" class="col-md-7">
+        <br>
+        <label class="col-md-3 mr-2 mt-3 text-right">Phone Number:</label>
+        <input type="text" [(ngModel)]="parentData.docPhone" class="col-md-7">
+    </div>
+
+    <span class="rounded head">Details of Incident</span>
+    <div class="content rounded">
+        <label class="col-md-3 mr-2 text-right">Incident Description:</label>
+        <input type="text" [(ngModel)]="parentData.doiDesc" class="col-md-7">
+        <br>
+        <label class="col-md-3 mr-2 mt-3 text-right">Start Date:</label>
+        <input type="date" [(ngModel)]="parentData.doiDateStart" class="col-md-7">
+        <br>
+        <label class="col-md-3 mr-2 mt-3 text-right">End Date:</label>
+        <input type="date" [(ngModel)]="parentData.doiDateEnd" class="col-md-7">
+        <br>
+        <label class="col-md-3 mr-2 mt-3 text-right">Start Time:</label>
+        <input type="time" [(ngModel)]="parentData.doiTimeStart" class="col-md-7">
+        <br>
+        <label class="col-md-3 mr-2 mt-3 text-right">End Time:</label>
+        <input type="time" [(ngModel)]="parentData.doiTimeEnd" class="col-md-7">
+        <br>
+        <label class="col-md-3 mr-2 mt-3 text-right">Address:</label>
+        <input type="text" [(ngModel)]="parentData.doiAddress" class="col-md-7">
+        <br>
+        <label class="col-md-3 mr-2 mt-3 text-right">District:</label>
+        <input type="text" [(ngModel)]="parentData.doiDistrict" class="col-md-7">
+        <br>
+        <label class="col-md-3 mr-2 mt-3 text-right">Pin Code:</label>
+        <input type="text" [(ngModel)]="parentData.doiPin" class="col-md-7">
+        <br>
+        <label class="col-md-3 mr-2 mt-3 text-right">Reason for Delay:</label>
+        <input type="text" [(ngModel)]="parentData.doiReason" class="col-md-7">
+    </div>
+
+    <span class="rounded head">Suspect Details</span>
+    <div class="content rounded">
+        <div *ngFor="let dat of parentData.dos; let i=index;">
+            <div *ngIf="parentData.dos[i].dosName != ''; else elseBlock">
+                <label style="font-weight: bold;" *ngIf="i === 0">FIRST SUSPECT DETAILS:</label>
+                <label style="font-weight: bold;" *ngIf="i === 1">SECOND SUSPECT DETAILS:</label>
+                <label style="font-weight: bold;" *ngIf="i === 2">THIRD SUSPECT DETAILS:</label>
+                <br>
+                <label class="col-md-3 mr-2 text-right">Name of Suspect</label>
+                <input type="text" [(ngModel)]="parentData.dos[i].dosName" class="col-md-7">
+                <br>
+                <label class="col-md-3 mr-2 text-right">Relative of Suspect:</label>
+                <input type="text" [(ngModel)]="parentData.dos[i].dosRname" class="col-md-7">
+                <br>
+                <label class="col-md-3 mr-2 text-right">Address</label>
+                <input type="text" [(ngModel)]="parentData.dos[i].dosAddress" class="col-md-7">
+                <br>
+                <label class="col-md-3 mr-2 text-right">District</label>
+                <input type="text" [(ngModel)]="parentData.dos[i].dosDistrict" class="col-md-7">
+                <br>
+                <label class="col-md-3 mr-2 text-right">Pin</label>
+                <input type="text" [(ngModel)]="parentData.dos[i].dosPin" class="col-md-7">
+            </div>
+            <ng-template #elseBlock>
+                <label>No data for suspect registered. To add please go back and register in <b>"Suspect Details"</b> section.</label>
+            </ng-template>
+        </div>
+    </div>
+
+    <span class="rounded head">Witness Details</span>
+    <div class="content rounded">
+        <div *ngFor="let dat of parentData.dow; let i=index;">
+            <div *ngIf="parentData.dow[i].dowName != ''; else elseBlock">
+                <label style="font-weight: bold;" *ngIf="i === 0">FIRST WITNESS DETAILS:</label>
+                <label style="font-weight: bold;" *ngIf="i === 1">SECOND WITNESS DETAILS:</label>
+                <label style="font-weight: bold;" *ngIf="i === 2">THIRD WITNESS DETAILS:</label>
+                <br>
+                <label class="col-md-3 mr-2 text-right">Name of Witness:</label>
+                <input type="text" [(ngModel)]="parentData.dow[i].dowName" class="col-md-7">
+                <br>
+                <label class="col-md-3 mr-2 text-right">Phone Number:</label>
+                <input type="text" [(ngModel)]="parentData.dow[i].dowRname" class="col-md-7">
+                <br>
+                <label class="col-md-3 mr-2 text-right">Address</label>
+                <input type="text" [(ngModel)]="parentData.dow[i].dowAddress" class="col-md-7">
+                <br>
+                <label class="col-md-3 mr-2 text-right">District</label>
+                <input type="text" [(ngModel)]="parentData.dow[i].dowDistrict" class="col-md-7">
+                <br>
+                <label class="col-md-3 mr-2 text-right">Pin</label>
+                <input type="text" [(ngModel)]="parentData.dow[i].dowPin" class="col-md-7">
+            </div>
+            <ng-template #elseBlock>
+                <label>No data for witness registered. To add please go back and register in <b>"Witness Details"</b> section.</label>
+            </ng-template>
+        </div>
+    </div>
+</div>

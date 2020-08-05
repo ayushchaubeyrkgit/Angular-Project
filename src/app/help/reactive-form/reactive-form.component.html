@@ -1,0 +1,35 @@
+<div class="container mt-5 mb-5 content-box pl-4 pr-4" id="bootstrap-overrides">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs border-bottom border-dark" role="tablist">
+        <li class="">
+            <a [ngClass]="(sectionActive === 1) ? linkAClass : 'nav-link'" (click)="changeValue($event, 1)"
+                data-toggle="tab">Detail of Complainant</a>
+        </li>
+        <li class="">
+            <a [ngClass]="(sectionActive === 2) ? linkAClass : 'nav-link'" (click)="changeValue($event, 2)"
+                data-toggle="tab">Detail of Incident</a>
+        </li>
+        <li class="">
+            <a [ngClass]="(sectionActive === 3) ? linkAClass : 'nav-link'" (click)="changeValue($event, 3)"
+                data-toggle="tab">Suspect Details</a>
+        </li>
+        <li class="">
+            <a [ngClass]="(sectionActive === 4) ? linkAClass : 'nav-link'" (click)="changeValue($event, 4)"
+                data-toggle="tab">Witness Details</a>
+        </li>
+        <li class="">
+            <a [ngClass]="(sectionActive === 5) ? linkAClass : 'nav-link'" (click)="changeValue($event, 5)"
+                data-toggle="tab">Signature</a>
+        </li>
+        <li class="">
+            <a [ngClass]="(sectionActive === 6) ? linkAClass : 'nav-link'" (click)="changeValue($event, 6)"
+                data-toggle="tab">Aadhar Verification</a>
+        </li>
+    </ul>
+            <div class="mt-4">
+                <button class="btn btn-secondary" (click)="changeValue($event, sectionActive-1)"
+                    [disabled]="sectionActive === 1">previous section</button>
+                <button class="btn btn-secondary float-right" (click)="changeValue($event, sectionActive+1)"
+                    [disabled]="sectionActive === 6">next section</button>
+            </div>
+</div>
